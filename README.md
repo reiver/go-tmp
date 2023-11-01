@@ -2,7 +2,7 @@
 
 Package **exp** implements an **expiring** **optional-type** with a **time-out**, for the Go programming language.
 
-In other programming languages, an **optional-type** might be know as: a **option-type**, or a **maybe-type**.
+In other programming languages, an **optional-type** might be known as: a **option-type**, or a **maybe-type**.
 
 ## Documention
 

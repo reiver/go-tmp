@@ -21,11 +21,11 @@ func TestTemporal_IsNothing(t *testing.T) {
 			Expected: false,
 		},
 		{
-			Temporal: Temporary[string]("expired", time.Now().Unix()-999),
+			Temporal: Temporary[string]("expired", time.Unix(time.Now().Unix()-999,0)),
 			Expected: false,
 		},
 		{
-			Temporal: Temporary[string]("not-expired", time.Now().Unix()+99999),
+			Temporal: Temporary[string]("not-expired", time.Unix(time.Now().Unix()+99999,0)),
 			Expected: false,
 		},
 	}

@@ -4,6 +4,7 @@ import (
 	"testing"
 
 	"fmt"
+	"time"
 
 	"sourcecode.social/reiver/go-tmp"
 )
@@ -193,112 +194,112 @@ func TestTemporal_GoString_temporary(t *testing.T) {
 
 	tests := []struct{
 		Value any
-		Until    int64
+		Until    time.Time
 		Expected string
 	}{
 		{
 			Value:                           "",
-			Until:                               0,
-			Expected: `tmp.Temporary[string]("", 0)`,
+			Until:                               time.Unix(0, 0),
+			Expected: `tmp.Temporary[string]("", time.Unix(0, 0))`,
 		},
 		{
 			Value:                           "once twice thrice fource",
-			Until:                                                       1234,
-			Expected: `tmp.Temporary[string]("once twice thrice fource", 1234)`,
+			Until:                                                       time.Unix(1234, 0),
+			Expected: `tmp.Temporary[string]("once twice thrice fource", time.Unix(1234, 0))`,
 		},
 		{
 			Value:                           "apple banana cherry",
-			Until:                                                  979899,
-			Expected: `tmp.Temporary[string]("apple banana cherry", 979899)`,
+			Until:                                                  time.Unix(979899, 0),
+			Expected: `tmp.Temporary[string]("apple banana cherry", time.Unix(979899, 0))`,
 		},
 
 
 
 		{
 			Value:                   uint8 (0x0),
-			Until:                               101,
-			Expected: `tmp.Temporary[uint8](0x0, 101)`,
+			Until:                               time.Unix(101, 0),
+			Expected: `tmp.Temporary[uint8](0x0, time.Unix(101, 0))`,
 		},
 		{
 			Value:                   uint8 (0x1),
-			Until:                               111,
-			Expected: `tmp.Temporary[uint8](0x1, 111)`,
+			Until:                               time.Unix(111, 0),
+			Expected: `tmp.Temporary[uint8](0x1, time.Unix(111, 0))`,
 		},
 		{
 			Value:                   uint8 (0x2),
-			Until:                               121,
-			Expected: `tmp.Temporary[uint8](0x2, 121)`,
+			Until:                               time.Unix(121, 0),
+			Expected: `tmp.Temporary[uint8](0x2, time.Unix(121, 0))`,
 		},
 		{
 			Value:                   uint8 (0xfe),
-			Until:                                989,
-			Expected: `tmp.Temporary[uint8](0xfe, 989)`,
+			Until:                                time.Unix(989, 0),
+			Expected: `tmp.Temporary[uint8](0xfe, time.Unix(989, 0))`,
 		},
 		{
 			Value:                   uint8 (0xff),
-			Until:                                999,
-			Expected: `tmp.Temporary[uint8](0xff, 999)`,
+			Until:                                time.Unix(999, 0),
+			Expected: `tmp.Temporary[uint8](0xff, time.Unix(999, 0))`,
 		},
 
 
 
 		{
 			Value:                   uint16 (0x0),
-			Until:                                303,
-			Expected: `tmp.Temporary[uint16](0x0, 303)`,
+			Until:                                time.Unix(303, 0),
+			Expected: `tmp.Temporary[uint16](0x0, time.Unix(303, 0))`,
 		},
 		{
 			Value:                   uint16 (0x1),
-			Until:                                313,
-			Expected: `tmp.Temporary[uint16](0x1, 313)`,
+			Until:                                time.Unix(313, 0),
+			Expected: `tmp.Temporary[uint16](0x1, time.Unix(313, 0))`,
 		},
 		{
 			Value:                   uint16 (0x2),
-			Until:                                323,
-			Expected: `tmp.Temporary[uint16](0x2, 323)`,
+			Until:                                time.Unix(323, 0),
+			Expected: `tmp.Temporary[uint16](0x2, time.Unix(323, 0))`,
 		},
 		{
 			Value:                   uint16 (0xfe),
-			Until:                                 383,
-			Expected: `tmp.Temporary[uint16](0xfe, 383)`,
+			Until:                                 time.Unix(383, 0),
+			Expected: `tmp.Temporary[uint16](0xfe, time.Unix(383, 0))`,
 		},
 		{
 			Value:                   uint16 (0xff),
-			Until:                                 393,
-			Expected: `tmp.Temporary[uint16](0xff, 393)`,
+			Until:                                 time.Unix(393, 0),
+			Expected: `tmp.Temporary[uint16](0xff, time.Unix(393, 0))`,
 		},
 		{
 			Value:                   uint16 (0x100),
-			Until:                                  3003,
-			Expected: `tmp.Temporary[uint16](0x100, 3003)`,
+			Until:                                  time.Unix(3003, 0),
+			Expected: `tmp.Temporary[uint16](0x100, time.Unix(3003, 0))`,
 		},
 		{
 			Value:                   uint16 (0x101),
-			Until:                                  3113,
-			Expected: `tmp.Temporary[uint16](0x101, 3113)`,
+			Until:                                  time.Unix(3113, 0),
+			Expected: `tmp.Temporary[uint16](0x101, time.Unix(3113, 0))`,
 		},
 		{
 			Value:                   uint16 (0x102),
-			Until:                                  3223,
-			Expected: `tmp.Temporary[uint16](0x102, 3223)`,
+			Until:                                  time.Unix(3223, 0),
+			Expected: `tmp.Temporary[uint16](0x102, time.Unix(3223, 0))`,
 		},
 		{
 			Value:                   uint16 (0xfffe),
-			Until:                                   3883,
-			Expected: `tmp.Temporary[uint16](0xfffe, 3883)`,
+			Until:                                   time.Unix(3883, 0),
+			Expected: `tmp.Temporary[uint16](0xfffe, time.Unix(3883, 0))`,
 		},
 		{
 			Value:                   uint16 (0xffff),
-			Until:                                   3993,
-			Expected: `tmp.Temporary[uint16](0xffff, 3993)`,
+			Until:                                   time.Unix(3993, 0),
+			Expected: `tmp.Temporary[uint16](0xffff, time.Unix(3993, 0))`,
 		},
 
 
 
 		{
 			Value:                   struct { A string; B int }{A:"joeblow",B:7},
-			Until:                                                                                             9876543210,
-			Expected: `tmp.Temporary[struct { A string; B int }](struct { A string; B int }{A:"joeblow", B:7}, 9876543210)`,
+			Until:                                                                                             time.Unix(9876543210, 0),
+			Expected: `tmp.Temporary[struct { A string; B int }](struct { A string; B int }{A:"joeblow", B:7}, time.Unix(9876543210, 0))`,
 		},
 	}
 

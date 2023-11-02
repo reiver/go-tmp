@@ -3,6 +3,8 @@ package tmp_test
 import (
 	"testing"
 
+	"time"
+
 	"sourcecode.social/reiver/go-tmp"
 )
 
@@ -43,46 +45,46 @@ func TestTemporal_Filter_int(t *testing.T) {
 
 
 		{
-			Temporal: tmp.Temporary[int](-2, 9_223_372_036_854_775_807), // int64 problem
-			Expected: tmp.Temporary[int](-2, 9_223_372_036_854_775_807),
+			Temporal: tmp.Temporary[int](-2, time.Unix(9_223_372_036_854_775_807,0)), // int64 problem
+			Expected: tmp.Temporary[int](-2, time.Unix(9_223_372_036_854_775_807,0)),
 		},
 		{
-			Temporal: tmp.Temporary[int](-1, 9_223_372_036_854_775_806), // int64 problem
+			Temporal: tmp.Temporary[int](-1, time.Unix(9_223_372_036_854_775_806,0)), // int64 problem
 			Expected: tmp.Nothing[int](),
 		},
 		{
-			Temporal: tmp.Temporary[int](0, 9_223_372_036_854_775_805), // int64 problem
-			Expected: tmp.Temporary[int](0, 9_223_372_036_854_775_805),
+			Temporal: tmp.Temporary[int](0, time.Unix(9_223_372_036_854_775_805,0)), // int64 problem
+			Expected: tmp.Temporary[int](0, time.Unix(9_223_372_036_854_775_805,0)),
 		},
 		{
-			Temporal: tmp.Temporary[int](1, 9_223_372_036_854_775_804), // int64 problem
+			Temporal: tmp.Temporary[int](1, time.Unix(9_223_372_036_854_775_804,0)), // int64 problem
 			Expected: tmp.Nothing[int](),
 		},
 		{
-			Temporal: tmp.Temporary[int](2, 9_223_372_036_854_775_803),
-			Expected: tmp.Temporary[int](2, 9_223_372_036_854_775_803), // int64 problem
+			Temporal: tmp.Temporary[int](2, time.Unix(9_223_372_036_854_775_803,0)),
+			Expected: tmp.Temporary[int](2, time.Unix(9_223_372_036_854_775_803,0)), // int64 problem
 		},
 
 
 
 		{
-			Temporal: tmp.Temporary[int](-2, 111), // supposed to be in the past
+			Temporal: tmp.Temporary[int](-2, time.Unix(111,0)), // supposed to be in the past
 			Expected: tmp.Nothing[int](),
 		},
 		{
-			Temporal: tmp.Temporary[int](-1, 111), // supposed to be in the past
+			Temporal: tmp.Temporary[int](-1, time.Unix(111,0)), // supposed to be in the past
 			Expected: tmp.Nothing[int](),
 		},
 		{
-			Temporal: tmp.Temporary[int](0, 111), // supposed to be in the past
+			Temporal: tmp.Temporary[int](0, time.Unix(111,0)), // supposed to be in the past
 			Expected: tmp.Nothing[int](),
 		},
 		{
-			Temporal: tmp.Temporary[int](1, 111), // supposed to be in the past
+			Temporal: tmp.Temporary[int](1, time.Unix(111,0)), // supposed to be in the past
 			Expected: tmp.Nothing[int](),
 		},
 		{
-			Temporal: tmp.Temporary[int](2, 111), // supposed to be in the past
+			Temporal: tmp.Temporary[int](2, time.Unix(111,0)), // supposed to be in the past
 			Expected: tmp.Nothing[int](),
 		},
 	}

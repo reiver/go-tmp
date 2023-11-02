@@ -25,11 +25,11 @@ func Permanent[T any](value T) Temporal[T] {
 	}
 }
 
-func Temporary[T any](value T, until int64) Temporal[T] {
+func Temporary[T any](value T, until time.Time) Temporal[T] {
 	return Temporal[T]{
 		istemporary:true,
 		value:value,
-		until:until,
+		until:until.Unix(),
 	}
 }
 
@@ -64,7 +64,7 @@ func (receiver Temporal[T]) GoString() string {
 		return fmt.Sprintf("tmp.Permanent[%T](%#v)", receiver.value, receiver.value)
 	}
 
-	return fmt.Sprintf("tmp.Temporary[%T](%#v, %d)", receiver.value, receiver.value, receiver.until)
+	return fmt.Sprintf("tmp.Temporary[%T](%#v, time.Unix(%d, 0))", receiver.value, receiver.value, receiver.until)
 }
 
 func (receiver Temporal[T]) IsDefunct() bool {

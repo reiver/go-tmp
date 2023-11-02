@@ -23,11 +23,11 @@ func TestTemporal_IsDefunct(t *testing.T) {
 			Expected: false,
 		},
 		{
-			Temporal: tmp.Temporary[string]("expired", time.Now().Unix()-999), // supposed to be in the pastasx
+			Temporal: tmp.Temporary[string]("expired", time.Unix(time.Now().Unix()-999,0)), // supposed to be in the pastasx
 			Expected: true,
 		},
 		{
-			Temporal: tmp.Temporary[string]("not-expired", time.Now().Unix()+99999),
+			Temporal: tmp.Temporary[string]("not-expired", time.Unix(time.Now().Unix()+99999,0)),
 			Expected: false,
 		},
 	}

@@ -3,6 +3,8 @@ package tmp_test
 import (
 	"testing"
 
+	"time"
+
 	"sourcecode.social/reiver/go-tmp"
 )
 
@@ -24,11 +26,11 @@ func TestTemporal_MarshalJSON_bool(t *testing.T) {
 
 
 		{
-			Value: tmp.Temporary(false, 9_223_372_036_854_775_807), // supposed to be a time far in the future
+			Value: tmp.Temporary(false, time.Unix(9_223_372_036_854_775_807,0)), // supposed to be a time far in the future
 			Expected: "false",
 		},
 		{
-			Value: tmp.Temporary(true, 9_223_372_036_854_775_806), // supposed to be a time far in the future
+			Value: tmp.Temporary(true, time.Unix(9_223_372_036_854_775_806,0)), // supposed to be a time far in the future
 			Expected: "true",
 		},
 	}
@@ -68,10 +70,10 @@ func TestTemporal_MarshalJSON_bool_fail(t *testing.T) {
 
 
 		{
-			Value: tmp.Temporary(false, 1234), // supposed to be a time that is already expired
+			Value: tmp.Temporary(false, time.Unix(1234,0)), // supposed to be a time that is already expired
 		},
 		{
-			Value: tmp.Temporary(true, 5678), // supposed to be a time that is already expired
+			Value: tmp.Temporary(true, time.Unix(5678,0)), // supposed to be a time that is already expired
 		},
 	}
 

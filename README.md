@@ -6,22 +6,22 @@ In other programming languages, an **optional-type** might be known as: a **opti
 
 ## Documention
 
-Online documentation, which includes examples, can be found at: http://godoc.org/sourcecode.social/reiver/go-tmp
+Online documentation, which includes examples, can be found at: http://godoc.org/github.com/reiver/go-tmp
 
-[![GoDoc](https://godoc.org/sourcecode.social/reiver/go-tmp?status.svg)](https://godoc.org/sourcecode.social/reiver/go-tmp)
+[![GoDoc](https://godoc.org/github.com/reiver/go-tmp?status.svg)](https://godoc.org/github.com/reiver/go-tmp)
 
 ## Import
 
 To import package **tmp** use `import` code like the follownig:
 ```
-import "sourcecode.social/reiver/go-tmp"
+import "github.com/reiver/go-tmp"
 ```
 
 ## Installation
 
 To install package **tmp** do the following:
 ```
-GOPROXY=direct go get https://sourcecode.social/reiver/go-tmp
+GOPROXY=direct go get https://github.com/reiver/go-tmp
 ```
 
 ## Author

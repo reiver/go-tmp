@@ -5,7 +5,7 @@ import (
 
 	"time"
 
-	"sourcecode.social/reiver/go-tmp"
+	"github.com/reiver/go-tmp"
 )
 
 func TestOptional_Get_string(t *testing.T) {

@@ -5,7 +5,7 @@ import (
 
 	"encoding/json"
 
-	"sourcecode.social/reiver/go-tmp"
+	"github.com/reiver/go-tmp"
 )
 
 func TestTemporal_UnmarshalJSON_bool(t *testing.T) {

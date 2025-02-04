@@ -5,7 +5,7 @@ import (
 
 	"time"
 
-	"sourcecode.social/reiver/go-tmp"
+	"github.com/reiver/go-tmp"
 )
 
 func TestTemporal_MarshalJSON_int(t *testing.T) {

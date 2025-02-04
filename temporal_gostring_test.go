@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"time"
 
-	"sourcecode.social/reiver/go-tmp"
+	"github.com/reiver/go-tmp"
 )
 
 func TestTemporal_GoString_permanent(t *testing.T) {

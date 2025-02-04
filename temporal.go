@@ -7,7 +7,7 @@ import (
 
 type Temporal[T any] struct {
 	value T
-	until int64 // unit-time
+	until int64 // unix-time
 	istemporary bool
 	ispermanent bool
 }

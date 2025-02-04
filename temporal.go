@@ -35,6 +35,9 @@ func Temporary[T any](value T, until time.Time) Temporal[T] {
 	}
 }
 
+// Optional returns a optional-type (also called an option-type and maybe-type) based on the temporal-type.
+// If the temporal-type or defunct, then it returns 'nothing'.
+// Else it returns 'something'.
 func (receiver Temporal[T]) Optional() opt.Optional[T] {
 	switch {
 	case receiver.isnothing():

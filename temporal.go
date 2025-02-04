@@ -3,6 +3,8 @@ package tmp
 import (
 	"fmt"
 	"time"
+
+	"github.com/reiver/go-opt"
 )
 
 type Temporal[T any] struct {
@@ -30,6 +32,17 @@ func Temporary[T any](value T, until time.Time) Temporal[T] {
 		istemporary:true,
 		value:value,
 		until:until.Unix(),
+	}
+}
+
+func (receiver Temporal[T]) Optional() opt.Optional[T] {
+	switch {
+	case receiver.isnothing():
+		return opt.Nothing[T]()
+	case receiver.IsDefunct():
+		return opt.Nothing[T]()
+	default:
+		return opt.Something[T](receiver.value)
 	}
 }
 

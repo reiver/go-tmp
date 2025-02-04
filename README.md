@@ -26,4 +26,4 @@ GOPROXY=direct go get https://sourcecode.social/reiver/go-tmp
 
 ## Author
 
-Package **tmp** was written by [Charles Iliya Krempeaux](http://changelog.ca)
+Package **tmp** was written by [Charles Iliya Krempeaux](http://reiver.link)

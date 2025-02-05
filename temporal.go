@@ -97,6 +97,20 @@ func (receiver Temporal[T]) IsDefunct() bool {
 	return true
 }
 
+func (receiver Temporal[T]) IsDefunctWhen(when time.Time) bool {
+	if receiver.ispermanent {
+		return false
+	}
+
+	if receiver.istemporary {
+		var then int64 = when.Unix()
+
+		return receiver.until < then
+	}
+
+	return true
+}
+
 func (receiver Temporal[T]) IsExtant() bool {
 	if receiver.ispermanent {
 		return true

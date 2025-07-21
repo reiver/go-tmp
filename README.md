@@ -10,6 +10,35 @@ Online documentation, which includes examples, can be found at: http://godoc.org
 
 [![GoDoc](https://godoc.org/github.com/reiver/go-tmp?status.svg)](https://godoc.org/github.com/reiver/go-tmp)
 
+## Example
+
+Here is a simple example:
+
+```golang
+import "github.com/reiver/go-tmp"
+
+// ...
+
+var until time.Time = time.Now().Add(8 * time.Hour)
+
+var temporal tmp.Temporal[string] = tmp.Temporary(value, until)
+
+// ...
+
+// If the temporal has expired then this will return the optional value 'nothing'.
+// Else, it will return the optional value 'something' (containing the same internal value that was inside of the temporal).
+optional := temporal.Optional()
+
+val, found := optional.Get()
+if found {
+	// ...
+} else {
+	// ...
+
+}
+
+```
+
 ## Import
 
 To import package **tmp** use `import` code like the follownig:
